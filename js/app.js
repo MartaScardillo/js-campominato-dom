@@ -50,6 +50,17 @@ playBtnDOMElement.addEventListener('click', function() {
         currentCellElement.addEventListener('click', function() {
             console.log('Casella toccata: ' + currentCellElement.innerHTML );
             currentCellElement.classList.add('bg-blue')
+            
+
+            if (bombs.includes(parseInt(currentCellElement.innerHTML))) {   
+                currentCellElement.classList.add('bg-red')
+            }
         })   
     }
+
+
+
+
+
+
 })
