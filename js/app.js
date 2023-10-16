@@ -1,3 +1,24 @@
+function getArrayOfBombs(minRange, maxRange, number) {
+    const bombsArray = []
+
+    while (bombsArray.length < number) {
+        const n = getRandomBombs(minRange, maxRange)
+        console.log(n)
+
+        if (bombsArray.includes(n) === false) {
+            bombsArray.push(n)
+        }
+    }
+
+    return bombsArray
+}
+
+function getRandomBombs(min, max) {
+    min = Math.ceil(min)
+    max = Math.floor(max)
+    return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
 const gridDOMElement = document.querySelector('.grid')
 console.log(gridDOMElement);
 
@@ -6,6 +27,9 @@ console.log(playBtnDOMElement);
 
 playBtnDOMElement.addEventListener('click', function() {
     gridDOMElement.innerHTML = ''
+
+    const bombs = getArrayOfBombs(1, 100, 16)
+	console.log(bombs)
 
     for (let i = 0; i < 100; i++) {
         const n = i + 1;
